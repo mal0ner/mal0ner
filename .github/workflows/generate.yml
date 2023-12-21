@@ -1,0 +1,20 @@
+name: Generate README GIF
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+        cache: 'pip'
+      - run: pip install -r requirements.txt
+      - run: python gif_generator.py
+      - uses: FedericoCarboni/setup-ffmpeg@v2
+      - run: ffmpeg -i output.gif -loop -1 no-loop.gif
