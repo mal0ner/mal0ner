@@ -1,7 +1,7 @@
 <div align="justify">
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://i.ibb.co/F32pZyP/output-gif.gif">
-    <source media="(prefers-color-scheme: light)" srcset="https://i.ibb.co/F32pZyP/output-gif.gif">
+    <source media="(prefers-color-scheme: dark)" srcset="./no-loop.gif">
+    <source media="(prefers-color-scheme: light)" srcset="./no-loop.gif">
     <img alt="GIFOS_README_TERMINAL" src="./no-loop.gif">
 </picture>
 
