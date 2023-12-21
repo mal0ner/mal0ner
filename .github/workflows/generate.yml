@@ -19,4 +19,4 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python gif_generator.py
       - uses: FedericoCarboni/setup-ffmpeg@v2
-      - run: ffmpeg -i output.gif -loop -1 no-loop.gif
+      - run: ffmpeg -i ./output.gif -loop -1 no-loop.gif
