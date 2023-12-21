@@ -143,7 +143,7 @@ t.gen_text(
 )
 t.clone_frame(10)
 t.delete_row(1, prompt_col)
-t.gen_text("\x1b[32mchmod\x1b[0m+x README.sh && ./REAMDE.sh\x1b[0m", 1, contin=True)
+t.gen_text("\x1b[32mchmod\x1b[0m +x README.sh && ./REAMDE.sh\x1b[0m", 1, contin=True)
 t.clone_frame(5)
 age = gifos.utils.calc_age(31, 7, 1999)
 user_details = f"""
@@ -161,13 +161,13 @@ user_details = f"""
 \x1b[96mLinkedIn:   \x1b[93mcammalone\x1b[0m
 """
 
-t.clear_frame()
-t.gen_prompt(1)
-prompt_col = t.curr_col
+# t.clear_frame()
+# t.gen_prompt(1)
+# prompt_col = t.curr_col
 t.gen_text(user_details, 2, count=5, contin=True)
 t.gen_prompt(t.curr_row)
 t.gen_typing_text(
-    "\x1b[32m# Thank you for visiting my profile : ), have a nice day!",
+    "\x1b[32m# Thank you for visiting my profile : ), have a nice day!\x1b[0m",
     t.curr_row,
     contin=True,
 )
