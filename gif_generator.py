@@ -167,7 +167,7 @@ prompt_col = t.curr_col
 t.gen_text(user_details, 2, count=5, contin=True)
 t.gen_prompt(t.curr_row)
 t.gen_typing_text(
-    "\x1b[90m# Thank you for visiting my profile : ), have a nice day!",
+    "\x1b[32m# Thank you for visiting my profile : ), have a nice day!",
     t.curr_row,
     contin=True,
 )
