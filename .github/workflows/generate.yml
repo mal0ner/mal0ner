@@ -13,11 +13,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
       - uses: FedericoCarboni/setup-ffmpeg@v2
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: python gif_generator.py
+      - name: Install python requirements
+        run: pip install -r requirements.txt
+      - name: Generate GIF
+        run: python gif_generator.py
       - run: ls
-      - run: ffmpeg -i output.gif -loop -1 no-loop.gif
+      - name: Convert to no-loop format with FFMPEG
+        run: ffmpeg -y -i output.gif -loop -1 no-loop.gif
+      - run: ls
+      - name: Commit generated GIF
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Cameron Malone
+          author_email: cameronmkm2@gmail.com
+          message: 'Auto Generated: Github Actions commit'
+          add: 'no-loop.gif'
