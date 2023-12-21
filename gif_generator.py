@@ -78,7 +78,7 @@ t.gen_text(
 t.delete_row(18)
 line_with_melbourne = global_globe[16]
 line_with_melbourne = (
-    line_with_melbourne[:32] + "\x1b[33m" + "(O)" + "\x1b[0m" + line_with_melbourne[35:]
+    line_with_melbourne[:32] + "\x1b[32m" + "(O)" + "\x1b[0m" + line_with_melbourne[35:]
 )
 t.gen_text(line_with_melbourne, 18, 2 + 17, contin=True, count=15)
 
@@ -94,7 +94,7 @@ for i in range(3):
     )
     t.delete_row(t.num_rows - 2)
     t.gen_text(
-        location_text + "\x1b[33mMelbourne, Australia\x1b[0m",
+        location_text + "\x1b[32mMelbourne, Australia\x1b[0m",
         row_num=t.num_rows - 2,
         col_num=((t.num_cols - len(location_text) - len(city_text)) // 2),
         contin=True,
@@ -103,7 +103,7 @@ for i in range(3):
 
 t.delete_row(t.num_rows - 2)
 t.gen_text(
-    location_text + "\x1b[33mMelbourne, Australia\x1b[0m",
+    location_text + "\x1b[32mMelbourne, Australia\x1b[0m",
     row_num=t.num_rows - 2,
     col_num=((t.num_cols - len(location_text) - len(city_text)) // 2),
     contin=True,
