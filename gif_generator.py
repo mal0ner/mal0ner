@@ -152,7 +152,7 @@ user_details = f"""
 \x1b[96mOS:     \x1b[93mMacOS, Linux\x1b[0m
 \x1b[96mHost:   \x1b[93mDeakin University Burwood\x1b[0m
 \x1b[96mKernel: \x1b[93mComputer Science\x1b[0m
-\x1b[96mUptime: \x1b[93m{age.years} years, {age.months} months, {age.days} days\x1b[0m
+\x1b[96mUptime: \x1b[93m{age.years} years, {age.months} months\x1b[0m
 \x1b[96mIDE:    \x1b[93mneovim 0.10\x1b[0m
 
 \x1b[30;101mContact:\x1b[0m

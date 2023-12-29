@@ -25,10 +25,13 @@ jobs:
       - name: Convert to no-loop format with FFMPEG
         run: ffmpeg -y -i output.gif -loop -1 no-loop.gif
       - run: ls
-      - name: Commit generated GIF
+      - name: Upload generated gif
+        run: python gif_upload.py
+        run: ls
+      - name: Commit generated README
         uses: EndBug/add-and-commit@v9
         with:
           author_name: Cameron Malone
           author_email: cameronmkm2@gmail.com
           message: 'Auto Generated: Github Actions commit'
-          add: 'no-loop.gif'
+          add: 'README.md'
