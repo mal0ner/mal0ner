@@ -27,7 +27,7 @@ jobs:
       - run: ls
       - name: Upload generated gif
         run: python gif_upload.py
-        run: ls
+      - run: ls
       - name: Commit generated README
         uses: EndBug/add-and-commit@v9
         with:
