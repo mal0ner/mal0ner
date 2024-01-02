@@ -1,4 +1,5 @@
 import gifos
+import os
 
 t = gifos.Terminal(750, 500, 15, 15, font_size=15)
 t.set_fps(15)
@@ -161,9 +162,6 @@ user_details = f"""
 \x1b[96mLinkedIn:   \x1b[93mcammalone\x1b[0m
 """
 
-# t.clear_frame()
-# t.gen_prompt(1)
-# prompt_col = t.curr_col
 t.gen_text(user_details, 2, count=5, contin=True)
 t.gen_prompt(t.curr_row)
 t.gen_typing_text(
@@ -171,7 +169,29 @@ t.gen_typing_text(
     t.curr_row,
     contin=True,
 )
-t.gen_gif()
-# image = gifos.utils.upload_imgbb(
-#     file_name="output.gif", expiration=60
-# )
+
+# Just generate the gif with no loop in the first place to save some trouble
+# The t.gen_gif command is just a simple wrapper around this anyway, just added the
+# -loop -1 flag
+
+os.system(
+    "ffmpeg -hide_banner -loglevel error -r 15 -i './frames/frame_%d.png' -loop -1 -filter_complex '[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse' output.gif"
+)
+
+# upload the gif to save hella space
+image = gifos.utils.upload_imgbb("output.gif", 129600)  # 1.5 days expiration
+readme_file_content = rf"""
+<div align="justify">
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="{image.url}">
+    <source media="(prefers-color-scheme: light)" srcset="{image.url}">
+    <img alt="GIFOS_README_TERMINAL" src="{image.url}">
+</picture>
+
+<sub><i>Generated automatically using [x0rzavi/github-readme-terminal](https://github.com/x0rzavi/github-readme-terminal)</i></sub>
+
+</div>
+    """
+with open("README.md", "w") as fp:
+    fp.write(readme_file_content)
+    print("INFO: README.md file generated")
