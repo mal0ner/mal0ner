@@ -28,7 +28,7 @@ jobs:
       - name: Upload generated gif
         run: python gif_upload.py
         env:
-          IMGBB_API_KEY: ${{ vars.IMGBB_API_KEY }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
       - run: ls
       - name: Commit generated README
         uses: EndBug/add-and-commit@v9
