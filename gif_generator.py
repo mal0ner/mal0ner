@@ -179,7 +179,7 @@ os.system(
 )
 
 # upload the gif to save hella space
-image = gifos.utils.upload_imgbb("output.gif", 129600)  # 1.5 days expiration
+image = gifos.utils.upload_imgbb("output.gif", 648000)  # 7.5 days expiration
 readme_file_content = rf"""
 <div align="justify">
 <picture>
